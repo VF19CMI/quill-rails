@@ -1,5 +1,5 @@
 <div class="quill-wrapper">
- <div id="full-toolbar-<%= @input_id %>" class="toolbar">
+ <div id="full-toolbar" class="toolbar">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
         <option value="sans-serif" selected="">Sans Serif</option>
@@ -113,38 +113,33 @@
     </span>
     <span class="ql-format-group">
       <span title="Link" class="ql-format-button ql-link"></span>
+      <span class="ql-format-separator"></span>
+      <span title="Image" class="ql-format-button ql-image"></span>
     </span>
   </div>
-  <div id="full-editor-<%= @input_id %>" class="editor ql-container"><%= @value %></div>
+  <div id="full-editor" class="editor ql-container"><%= @value %></div>
   <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' value=''/>
 
   <script type='text/javascript'>
     (function() {
-      function initQuill() {
-        if (typeof Quill != 'undefined'){
-          // Initialize editor with custom theme and modules
-          function copyToInput() {
-            document.getElementById('<%= @input_id %>').value = fullEditor.getHTML()
-          }
-
-          var fullEditor = new Quill('#full-editor-<%= @input_id %>', {
-            modules: {
-              'toolbar': { container: '#full-toolbar-<%= @input_id %>' },
-              'link-tooltip': true
-            },
-            theme: 'snow'
-          });
-
-          fullEditor.on('text-change', function(delta, source) {
-            copyToInput()
-          });
-          copyToInput()
-        } else { 
-          setTimeout(initQuill, 50);
-        }        
+      // Initialize editor with custom theme and modules
+      function copyToInput() {
+        document.getElementById('<%= @input_id %>').value = fullEditor.getHTML()
       }
 
-      initQuill();
+      var fullEditor = new Quill('#full-editor', {
+        modules: {
+          'toolbar': { container: '#full-toolbar' },
+          'image-tooltip': true,
+          'link-tooltip': true
+        },
+        theme: 'snow'
+      });
+
+      fullEditor.on('text-change', function(delta, source) {
+        copyToInput()
+      });
+      copyToInput()
     })()
   </script>
 </div>
