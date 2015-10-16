@@ -1,5 +1,5 @@
 <div class="quill-wrapper">
- <div id="full-toolbar" class="toolbar">
+ <div id="full-toolbar-<%= @random_text %>" class="toolbar">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
         <option value="sans-serif" selected="">Sans Serif</option>
@@ -129,7 +129,7 @@
 
       var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
         modules: {
-          'toolbar': { container: '#full-toolbar' },
+          'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
           'image-tooltip': true,
           'link-tooltip': true
         },
