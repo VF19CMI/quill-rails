@@ -121,7 +121,7 @@
   <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' value=''/>
 
   <script type='text/javascript'>
-    (function($) {
+    var LAUNCH_QUILL = function() {
 		$(document).ready(function () {
 		  // Initialize editor with custom theme and modules
 		  function copyToInput() {
@@ -142,6 +142,6 @@
 		  });
 		  copyToInput();
 		});
-    }(jQuery));
+    };
   </script>
 </div>
