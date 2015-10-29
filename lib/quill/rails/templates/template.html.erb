@@ -122,6 +122,9 @@
 
   <script type='text/javascript'>
    
+	 window.onload = function () {
+		 alert('loaded');
+	 };
 	  
 	function copyToInput() {
 		document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
