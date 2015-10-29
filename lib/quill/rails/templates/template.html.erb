@@ -1,5 +1,5 @@
 <div class="quill-wrapper">
- <div id="full-toolbar-<%= @random_text %>" class="toolbar boomerang-texteditor">
+ <div id="full-toolbar-<%= @random_text %>" class="toolbar">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
         <option value="sans-serif" selected="">Sans Serif</option>
@@ -120,7 +120,7 @@
   <!--<div id="full-editor-<%= @random_text %>" class="editor ql-container"><%= @value %></div>
   <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' value=''/>-->
 
-  <div id="full-editor-<%= @random_text %>" class="editor ql-container"><%= @value %></div>
+  <div id="full-editor-<%= @random_text %>" class="editor ql-container boomerang-texteditor"><%= @value %></div>
   <input type='text' name='<%= @input_name %>' id='<%= @input_id %>' class="real-text-value" value=''/>
 
   <script type='text/javascript'>
