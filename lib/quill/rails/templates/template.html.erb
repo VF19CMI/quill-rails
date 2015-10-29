@@ -123,9 +123,24 @@
   <script type='text/javascript'>
    
 	  
-	  //window.onload = function () {
-		  console.log('ready');
-	 // };
+	function copyToInput() {
+		document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
+	}
+
+	var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
+		modules: {
+			'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
+			'image-tooltip': true,
+			'link-tooltip': true
+		},
+			theme: 'snow'
+		});
+
+	fullEditor.on('text-change', function(delta, source) {
+		copyToInput();
+	});
+		
+	copyToInput();
 		  
   </script>
 </div>
