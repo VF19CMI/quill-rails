@@ -146,7 +146,7 @@
     }(VODAFONE_QUILL || {}));*/
 	  
 	  window.onload = function () {
-		  (function () {
+		  console.log('ready');
 			  // Initialize editor with custom theme and modules
 			  function copyToInput() {
 				document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
@@ -165,7 +165,6 @@
 				copyToInput();
 			  });
 			  copyToInput();
-			}());
 		 };
 		  
   </script>
