@@ -1,5 +1,5 @@
 <div class="quill-wrapper">
- <div id="full-toolbar-<%= @random_text %>" class="toolbar">
+ <div id="full-toolbar-<%= @random_text %>" class="toolbar boomerang-texteditor">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
         <option value="sans-serif" selected="">Sans Serif</option>
@@ -128,10 +128,10 @@
 				document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
 			}
 
-			var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
+			var fullEditor = new Quill(".boomerang-texteditor", {
 				modules: {
 					'toolbar': {
-						container: '#full-toolbar-<%= @random_text %>'
+						container: '.boomerang-texteditor'
 					},
 					'image-tooltip': true,
 					'link-tooltip': true
