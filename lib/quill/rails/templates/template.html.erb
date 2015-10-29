@@ -121,29 +121,30 @@
   <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' value=''/>
 
   <script type='text/javascript'>
-	var VODAFONE_QUILL = (function(quill) {
-		quill.init = function () {
-		 // Initialize editor with custom theme and modules
-		 function copyToInput() {
-		document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
-		 }
+	function VodafoneQuill() {
+		this.init = function () {
+			// Initialize editor with custom theme and modules
+			function copyToInput() {
+				document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
+			}
 
-		 var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
-		modules: {
-		 'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
-		 'image-tooltip': true,
-		 'link-tooltip': true
-		},
-		theme: 'snow'
-		 });
+			var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
+				modules: {
+					'toolbar': {
+						container: '#full-toolbar-<%= @random_text %>'
+					},
+					'image-tooltip': true,
+					'link-tooltip': true
+				},
+				theme: 'snow'
+			});
 
-		 fullEditor.on('text-change', function(delta, source) {
-		copyToInput();
-		 });
-		 copyToInput();
+			fullEditor.on('text-change', function (delta, source) {
+				copyToInput();
+			});
+			copyToInput();
 		};
-		return quill;
-    }(VODAFONE_QUILL || {}));
+	}
    
 	 /* (function() {
 		function copyToInput() {
