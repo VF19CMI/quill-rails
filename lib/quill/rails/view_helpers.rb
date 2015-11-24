@@ -13,6 +13,7 @@ module Quill
         @input_name = (name || mod_options[:name])
         @input_id   = quill_sanitize_id(name || mod_options[:id])
         @value      = mod_options[:value].present? ? mod_options[:value] : ""
+        @hide_toolbar = options[:hide_toolbar] || false
         @random_text = ('a'..'z').to_a.shuffle[0,16].join
         ERB.new(File.read(File.join(source_root, 'template.html.erb'))).result(binding).html_safe
       end

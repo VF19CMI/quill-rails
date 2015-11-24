@@ -1,5 +1,5 @@
 <div class="quill-wrapper boomerang-advanced-wrapper">
- <div id="full-toolbar-<%= @random_text %>" class="toolbar">
+ <div id="full-toolbar-<%= @random_text %>" class="toolbar" data-hidden="<%= @hide_toolbar %>">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
         <option value="sans-serif" selected="">Sans Serif</option>
@@ -121,27 +121,27 @@
   <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' class="real-text-value" value=''/>
 
   <script type='text/javascript'>
-	
-	 /* (function() {
-		function copyToInput() {
-			document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
-		}
 
-		var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
-			modules: {
-				'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
-				'image-tooltip': true,
-				'link-tooltip': true
-			},
-				theme: 'snow'
-			});
+   /* (function() {
+    function copyToInput() {
+      document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
+    }
 
-		fullEditor.on('text-change', function(delta, source) {
-			copyToInput();
-		});
+    var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
+      modules: {
+        'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
+        'image-tooltip': true,
+        'link-tooltip': true
+      },
+        theme: 'snow'
+      });
 
-		copyToInput();
-		}());*/
-	
+    fullEditor.on('text-change', function(delta, source) {
+      copyToInput();
+    });
+
+    copyToInput();
+    }());*/
+
   </script>
 </div>
