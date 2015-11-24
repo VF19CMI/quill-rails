@@ -1,4 +1,4 @@
-<div class="quill-wrapper">
+<div class="quill-wrapper boomerang-advanced-wrapper">
  <div id="full-toolbar-<%= @random_text %>" class="toolbar">
     <span class="ql-format-group">
       <select title="Font" class="ql-font">
@@ -117,29 +117,31 @@
       <span title="Image" class="ql-format-button ql-image"></span>
     </span>
   </div>
-  <div id="full-editor-<%= @random_text %>" class="editor ql-container"><%= @value %></div>
-  <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' value=''/>
+  <div id="full-editor-<%= @random_text %>" class="editor ql-container boomerang-texteditor"><%= @value %></div>
+  <input type='hidden' name='<%= @input_name %>' id='<%= @input_id %>' class="real-text-value" value=''/>
 
   <script type='text/javascript'>
-    (function() {
-      // Initialize editor with custom theme and modules
-      function copyToInput() {
-        document.getElementById('<%= @input_id %>').value = fullEditor.getHTML()
-      }
+	
+	 /* (function() {
+		function copyToInput() {
+			document.getElementById('<%= @input_id %>').value = fullEditor.getHTML();
+		}
 
-      var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
-        modules: {
-          'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
-          'image-tooltip': true,
-          'link-tooltip': true
-        },
-        theme: 'snow'
-      });
+		var fullEditor = new Quill("#full-editor-<%= @random_text %>", {
+			modules: {
+				'toolbar': { container: '#full-toolbar-<%= @random_text %>' },
+				'image-tooltip': true,
+				'link-tooltip': true
+			},
+				theme: 'snow'
+			});
 
-      fullEditor.on('text-change', function(delta, source) {
-        copyToInput()
-      });
-      copyToInput()
-    })()
+		fullEditor.on('text-change', function(delta, source) {
+			copyToInput();
+		});
+
+		copyToInput();
+		}());*/
+	
   </script>
 </div>
